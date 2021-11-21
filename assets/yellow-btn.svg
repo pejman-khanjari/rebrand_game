@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="88px" viewBox="0 0 97 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 15 Copy</title>
+    <defs>
+        <ellipse id="path-1" cx="49.5" cy="44" rx="37.5" ry="31"></ellipse>
+        <filter x="-4.0%" y="-4.8%" width="108.0%" height="109.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.109063632   0 0 0 0 0.109063632   0 0 0 0 0.109063632  0 0 0 0.0602600524 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-6.7%" y="-8.1%" width="113.3%" height="116.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="2" dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.0291632255   0 0 0 0 0.0963950124   0 0 0 0 0.373471467  0 0 0 0.326076267 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <path d="M49,4 C65.8284716,4 79.7148642,16.2148245 81.7447059,32.0001373 L82,32 L82,36 C82,53.673112 67.2253967,68 49,68 C30.7746033,68 16,53.673112 16,36 L16,36 L16,32 L16.2552941,32.0001373 C18.2851358,16.2148245 32.1715284,4 49,4 Z" id="path-4"></path>
+        <filter x="-2.3%" y="-2.3%" width="104.5%" height="104.7%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.610535553   0 0 0 0 0.477085159   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Game-assets" transform="translate(-1197.000000, -872.000000)">
+            <g id="Group-15-Copy" transform="translate(1197.000000, 872.000000)">
+                <ellipse id="Oval" fill="#425ED2" cx="48.5" cy="50.5" rx="48.5" ry="37.5"></ellipse>
+                <g id="Oval-Copy-10">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#B2C1FF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                </g>
+                <g id="Combined-Shape" opacity="0.254231771">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                    <use fill="#A18009" fill-rule="evenodd" xlink:href="#path-4"></use>
+                </g>
+                <path d="M49,2 C66.1821863,2 80.2973157,14.7337034 81.8569034,31.0001554 L82,31 L82,35 L81.9841813,35.0003727 C81.4391779,52.2106015 66.8802555,66 49,66 C31.1197445,66 16.5608221,52.2106015 16.0158187,35.0003727 L16,35 L16,31 L16.1430966,31.0001554 C17.7026843,14.7337034 31.8178137,2 49,2 Z" id="Combined-Shape-Copy" fill="#E2B100"></path>
+                <ellipse id="Oval" fill="#FFCF00" cx="49" cy="29.5" rx="33" ry="29.5"></ellipse>
+                <path d="M80.7992178,28.000423 C80.9318424,28.9846142 81,29.985522 81,31 C81,45.3594035 67.3446849,57 50.5,57 C33.6553151,57 20,45.3594035 20,31 C20,29.985522 20.0681576,28.9846142 20.2007822,28.000423 C21.9453888,40.9460958 34.8453759,51 50.5,51 C65.9971101,51 78.7947376,41.1473991 80.7431765,28.3894878 Z" id="Combined-Shape" fill="#FDC300" opacity="0.655831473"></path>
+                <ellipse id="Oval" fill="#FFDD49" cx="49" cy="12" rx="20" ry="10"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

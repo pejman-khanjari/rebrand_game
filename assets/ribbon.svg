@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="342px" height="112px" viewBox="0 0 342 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 14</title>
+    <defs>
+        <polygon id="path-1" points="0.3484 0.127 113.277 0.127 113.277 90 0.3484 90"></polygon>
+        <polygon id="path-3" points="0.7442 0.675 242.7442 0.675 242.7442 79.7474 0.7442 79.7474"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Game-assets" transform="translate(-765.000000, -998.000000)">
+            <g id="Group-14" transform="translate(765.000000, 998.000000)">
+                <g id="Group-13">
+                    <g id="Group-3" transform="translate(228.000000, 22.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M113.2774,20.376 C92.9414,16.823 18.4154,0.127 18.4154,0.127 L0.3484,72.266 L85.9074,90 L70.6004,49.397 L113.2774,20.376 Z" id="Fill-1" fill="#CE2837" mask="url(#mask-2)"></path>
+                    </g>
+                    <polygon id="Fill-4" fill="#970F1B" points="235.5396 65.5518 228.3486 94.2658 274.3006 79.5778"></polygon>
+                    <path d="M0,42.376 C20.337,38.823 94.862,22.127 94.862,22.127 L112.929,94.266 L27.37,112 L42.677,71.397 L0,42.376 Z" id="Fill-6" fill="#CE2837"></path>
+                    <polygon id="Fill-8" fill="#970F1B" points="105.7378 65.5518 112.9288 94.2658 67.0088 79.7468"></polygon>
+                    <g id="Group-12" transform="translate(49.000000, 0.000000)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Clip-11"></g>
+                        <path d="M242.7442,12.4034 C213.7052,6.2424 174.0432,0.6744 125.4922,0.6744 C74.5542,0.6744 31.8012,6.8024 0.7442,13.3134 L18.0082,79.7474 C46.1082,75.0284 82.4152,70.9394 121.8702,70.9394 C160.3772,70.9394 196.6262,74.9954 225.3012,79.5784 L242.7442,12.4034 Z" id="Fill-10" fill="#E54554" mask="url(#mask-4)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
