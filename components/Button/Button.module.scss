@@ -1,0 +1,27 @@
+@import "styles/variables";
+.Button {
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.Primary {
+  background: $primary;
+  color: #fff;
+}
+
+.Warning {
+  background: $warning;
+  color: #fff;
+}
+.Success {
+  background: $success;
+  color: #fff;
+}
+.Error {
+  background: $error;
+  color: #fff;
+}
