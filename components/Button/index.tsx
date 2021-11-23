@@ -3,13 +3,13 @@ import clsx from "clsx";
 import style from "./Button.module.scss";
 
 interface ButtonComponentPropType {
-  text: string;
+  children: any;
   variant: "primary" | "warning" | "success" | "error";
   className?: string;
   onClick: () => void;
 }
 
-const ButtonComponent = ({text, variant = "primary", onClick, className}: ButtonComponentPropType) => {
+const ButtonComponent = ({children, variant = "primary", onClick, className}: ButtonComponentPropType) => {
   return (
     <Fragment>
       <button
@@ -20,7 +20,7 @@ const ButtonComponent = ({text, variant = "primary", onClick, className}: Button
           [style.Error]: variant === "error",
           [style.Success]: variant === "success",
       })}
-      >{text}</button>
+      >{children}</button>
     </Fragment>
   );
 };

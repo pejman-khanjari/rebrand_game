@@ -1,22 +1,26 @@
 @import "../../styles/scsss/variables";
 .Container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 35px;
-  & .MenuItems {
-    list-style: none;
+  & .MenuItem {
+    padding: 5px 18px;
+    border-radius: 25px;
+    color: $text-primary;
+    text-decoration: none;
     display: flex;
     align-items: center;
-    padding: 0;
-    margin: 0;
-    & .MenuItem {
-      padding: 5px 18px;
-      border-radius: 25px;
-      color: $text-primary;
-      &:hover {
-        background: #eef2fd;
-      }
+    &:hover {
+      background: $light-blue;
+    }
+  }
+  & .ActiveItem {
+    color: #4f73fd;
+  }
+  & .NavbarToggle {
+    border: none;
+    outline: none;
+    &:focus,&:active {
+      border: none;
+      outline: none;
+      box-shadow: none;
     }
   }
 }
