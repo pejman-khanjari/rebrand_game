@@ -1,11 +1,10 @@
 @import "styles/scsss/variables";
 
 .CountDownContainer {
-  display: grid;
+  display: flex;
   grid-template-columns: 25% 25% 25% 25%;
   grid-column-gap: 16px;
-  max-width: 580px;
-  direction: ltr;
+  width: 100%;
 }
 
 .TimeBoxContainer {
@@ -14,8 +13,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 8.3rem;
-  height: 8.3rem;
+  width: calc(10vw + 69px);
+  height: calc(10vw + 69px);
+  max-width: 8.3rem;
+  max-height: 8.3rem;
   background-color: #fff;
   border-radius: 16px;
   -webkit-box-shadow: 0 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
@@ -29,9 +30,7 @@
     font-size: 64px;
     color: #ff9800;
     -webkit-transition: all 1s ease;
-    transition: all 1s ease;
-    //-webkit-transform: translate(50%, 0);
-    //transform: translate(50%, 0);
+    //animation: TimeSlide 1.2s forwards;
   }
   & > .TimeBoxLabel {
     position: absolute;
@@ -42,3 +41,17 @@
     font-weight: 500;
   }
 }
+
+//@keyframes TimeSlide {
+//  0% {
+//    transform: translateY(50px);
+//    opacity: 0;
+//  }
+//  40% {
+//    transform: translateY(-10px);
+//  }
+//  100% {
+//    transform: translateY(0);
+//    opacity: 1;
+//  }
+//}

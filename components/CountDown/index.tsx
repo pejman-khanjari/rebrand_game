@@ -17,7 +17,7 @@ const TimeBox: React.FC<TimeBoxPropType> = memo(({ data }) => {
   return (
     <Fragment>
       <div className={style.TimeBoxContainer}>
-        <div className={style.TimeBoxValue}>{data.value}</div>
+        <div className={style.TimeBoxValue}>{data.value > 9 ? data.value : `0${data.value}`}</div>
         <div className={style.TimeBoxLabel}>{data.label}</div>
       </div>
     </Fragment>

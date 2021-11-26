@@ -6,7 +6,7 @@ interface ButtonComponentPropType {
   children: any;
   variant: "primary" | "warning" | "success" | "error";
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const ButtonComponent = ({children, variant = "primary", onClick, className}: ButtonComponentPropType) => {
