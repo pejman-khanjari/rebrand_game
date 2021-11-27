@@ -1,0 +1,35 @@
+@import "styles/scsss/variables";
+.LettersContainer {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-column-gap: 8px;
+  grid-template-rows: 33% 33% 33%;
+  grid-row-gap: 8px;
+  margin-top: 30px;
+  & .LetterButton {
+    background-image: url("./../../../public/images/btn-w.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 28px;
+    color: #0c7ff2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & .CorrectLetter {
+    background-image: url("./../../../public/images/btn-ok.svg");
+  }
+  & .WrongLetter {
+    background-image: url("./../../../public/images/btn-failed.svg");
+  }
+}
