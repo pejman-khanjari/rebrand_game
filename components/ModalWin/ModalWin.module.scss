@@ -1,0 +1,51 @@
+.ModalWin {
+  padding: 16px;
+  text-align: center;
+  & .Container {
+    line-height: 2.3;
+    .Banner {
+      margin: -48px 0 0;
+
+      .Description {
+        position: relative;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        top: -96px;
+      }
+    }
+    .Title {
+      font-size: 16px;
+      .Brand {
+        display: inline-block;
+        margin: 0 4px;
+        color: #ff9800;
+      }
+    }
+
+    .Subtitle {
+      font-size: 14px;
+    }
+
+    .input {
+      background-color: #e1e1;
+      border: 0;
+      height: 56px;
+      text-align: center;
+      color: blue;
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
+  .SubmitButton {
+    border-radius: 50px;
+    min-width: 200px;
+    padding: 8px 20px;
+    font-size: 14px;
+    width: 80px;
+  }
+  & .CloseButton {
+    width: 20px;
+    background-color: transparent;
+  }
+}
