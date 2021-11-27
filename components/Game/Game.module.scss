@@ -41,6 +41,7 @@
     border-radius: 0;
     border: none;
     padding: 0;
+    height: auto;
     & .GameContainer {
       border-radius: 0;
       padding: 10px;
@@ -50,6 +51,6 @@
 
 @media screen and (max-width: 480px) {
   .Border {
-    height: 600px;
+    height: auto;
   }
 }

@@ -28,8 +28,10 @@
   }
   & .CorrectLetter {
     background-image: url("./../../../public/images/btn-ok.svg");
+    cursor: not-allowed;
   }
   & .WrongLetter {
     background-image: url("./../../../public/images/btn-failed.svg");
+    cursor: not-allowed;
   }
 }

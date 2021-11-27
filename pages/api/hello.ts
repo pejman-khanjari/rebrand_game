@@ -9,5 +9,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  const { ip } = req.query;
+  const now = new Date().getTime();
   res.status(200).json({ name: 'John Doe' })
 }

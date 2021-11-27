@@ -23,7 +23,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const game = new Game(playerIp, gameAnswer);
 
   if (mobile) {
-    const {user: player, status} = game.setWinnerMobileNumber(mobile);
+    const {user: player, status} = game.setWinnerMobile(mobile);
     return res.status(status).json(player);
   }
 

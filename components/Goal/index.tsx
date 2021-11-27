@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import clsx from "clsx";
 import CountDown from "../CountDown";
 import ButtonComponent from "../Button";
 import style from "./Goal.module.scss";

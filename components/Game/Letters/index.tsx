@@ -15,15 +15,20 @@ interface PropsType {
 const Letters: React.FC<PropsType> = ({onSelectLetter,selectedLetters }) => {
   const checkLetter = (value: string) => {
     const letter = selectedLetters.find((item) => item.value === value);
-    console.log(letter, 'letter')
     if (letter?.accepted) return style.CorrectLetter;
     else if (letter && !letter.accepted) return style.WrongLetter;
+  }
+  const checkDisableLetter = (value: string): boolean => {
+    const letterIndex = selectedLetters.find((item) => item.value === value);
+    console.log(letterIndex)
+    return !!letterIndex
+
   }
   return (
     <Fragment>
       <div className={style.LettersContainer}>
         {letters.split('').map((item: string) => (
-          <button type="button" className={clsx(style.LetterButton, checkLetter(item))} onClick={() => onSelectLetter(item)}>{item}</button>
+          <button disabled={checkDisableLetter(item)} type="button" className={clsx(style.LetterButton, checkLetter(item))} onClick={() => onSelectLetter(item)}>{item}</button>
         ))}
       </div>
     </Fragment>

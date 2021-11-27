@@ -1,5 +1,5 @@
-import {ITransformedUser, User} from '../models/user';
-import {DB} from './db';
+import { ITransformedUser, User } from '../models/user';
+import { DB } from './db';
 
 export class Game {
   private readonly playerIp: string;
@@ -7,48 +7,28 @@ export class Game {
   private correctLetters: string[];
 
   constructor(playerIp: string, answer: string) {
-
     this.playerIp = playerIp;
     this.correctLetters = answer.split('');
-    this.user = DB.getUser(this.playerIp);
-    this.user.setAnswer(this.correctLetters);
+    this.user = DB.getUser({ ip: this.playerIp, answer: this.correctLetters });
   }
 
-  private checkLetterIndex(letter: string): number {
-    const letterIndex = this.user.getAnswer().indexOf(letter);
-    return letterIndex;
-  }
-
-  private checkLetter(letter: string) {
-    return this.checkLetterIndex(letter) > -1
-  }
-
-  public play(letter: string): { user: ITransformedUser; status: number } {
-    if (this.user.getWon() && !this.playIsAllowed())
-      return {user: this.user.transform(), status: 403};
-    if (((!this.checkLetter(letter) && this.user.getTries() === 2) || (this.user.getTries() > 2)) && !this.playIsAllowed()) {
-      this.user.setTries(this.user.getTries() + 1);
-      DB.updateUser(this.user);
-      return {user: this.user.transform(), status: 403};
+  private check(letter: string): boolean {
+    const correctLetters = [...this.user.getAnswer()];
+    const letterIndex = correctLetters.indexOf(letter);
+    if (letterIndex > -1) {
+      correctLetters[letterIndex] = '_';
+      this.user.setAnswer(correctLetters);
+      return true;
     }
-    if (this.playIsAllowed()) this.user.resetPlayer();
-    if (this.checkLetter(letter)) {
-      this.user.setScore(this.user.getScore() + 1);
-      if (this.user.getScore() === this.correctLetters.length)
-        this.user.setWon(true);
-      DB.updateUser(this.user);
-      return {user: this.user.transform(), status: 200};
-    } else {
-      this.user.setTries(this.user.getTries() + 1);
-      DB.updateUser(this.user);
-      return {user: this.user.transform(), status: 400};
-    }
+    return false;
   }
 
-  public setWinnerMobileNumber(mobile: string): { user: ITransformedUser; status: number } {
-    this.user.setMobile(mobile);
-    DB.updateUser(this.user);
-    return {user: this.user.transform(), status: 200};
+  private checkLetterIsCorrect(letter: string): boolean {
+    return this.user.getAnswer().indexOf(letter) > -1;
+  }
+
+  private checkUserIsWinner(): boolean {
+    return this.user.getAnswer().filter((letter) => letter !== '_').length === 0;
   }
 
   private playIsAllowed(): boolean {
@@ -57,5 +37,36 @@ export class Game {
     const diff = now.getTime() - lastPlayed.getTime();
     const diffHours = Math.floor(diff / (1000 * 60 * 60));
     return diffHours >= 24;
+  }
+
+  public play(letter: string): { user: ITransformedUser; status: number } {
+    if (((this.user.getTries() === 2 && !this.checkLetterIsCorrect(letter)) || this.user.getTries() > 2) && !this.playIsAllowed()) {
+      this.user.setTries(this.user.getTries() + 1);
+      DB.updateUser(this.user);
+      return { user: this.user.transform(), status: 403 };
+    }
+    if (this.user.getWon() && !this.playIsAllowed())
+      return { user: this.user.transform(), status: 403 };
+    if (this.playIsAllowed()) this.user.resetPlayer();
+    if (this.check(letter)) this.user.setScore(this.user.getScore() + 1);
+    else {
+      this.user.setLastTimePlayed(new Date());
+      this.user.setTries(this.user.getTries() + 1);
+      DB.updateUser(this.user);
+      return { user: this.user.transform(), status: 400 };
+    }
+    if (this.checkUserIsWinner()) {
+      this.user.setLastTimePlayed(new Date());
+      this.user.setWon(true);
+    }
+    DB.updateUser(this.user);
+    return { user: this.user.transform(), status: 200 };
+  }
+
+  public setWinnerMobile(mobile: string): { user: ITransformedUser; status: number } {
+    this.user = DB.getUser({ ip: this.playerIp, answer: this.correctLetters });
+    this.user.setMobile(mobile);
+    DB.updateUser(this.user);
+    return { user: this.user.transform(), status: 200 };
   }
 }

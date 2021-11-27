@@ -1,22 +1,31 @@
 import { User } from '../models/user';
-
 interface Database {
   users: User[];
 }
 
 class InMemeoryDatabase {
   private readonly db: Database = { users: [] };
-  constructor() {
-    this.db.users = [];
+
+  private static instance: InMemeoryDatabase;
+
+  public static getInstance() {
+    if (!InMemeoryDatabase.instance) {
+      InMemeoryDatabase.instance = new InMemeoryDatabase();
+    }
+
+    return InMemeoryDatabase.instance;
   }
+
+  constructor() {}
+
   getUsers() {
     return this.db.users;
   }
-  getUser(ip: string) {
-    return this.db.users.find((user) => user.getIp() === ip) || this.createUser(ip);
+  getUser({ ip, answer }: { ip: string; answer: string[] }) {
+    return this.db.users.find((user) => user.getIp() === ip) || this.createUser(ip, answer);
   }
-  createUser(ip: string) {
-    const user = new User({ ip });
+  createUser(ip: string, answer: string[]) {
+    const user = new User({ ip, answer });
     this.db.users.push(user);
     return user;
   }
@@ -29,4 +38,4 @@ class InMemeoryDatabase {
   }
 }
 
-export const DB = new InMemeoryDatabase();
+export const DB = InMemeoryDatabase.getInstance();
