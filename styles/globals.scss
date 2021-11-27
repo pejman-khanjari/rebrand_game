@@ -20,3 +20,15 @@ a {
   box-sizing: border-box;
   font-family: iransans;
 }
+
+.modal-content {
+  border-radius: 32px;
+}
+.modal-header {
+  border-bottom: 0;
+  justify-content: flex-end;
+}
+.modal-footer {
+  border-top: 0;
+  justify-content: center;
+}
