@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import {NextApiRequest, NextApiResponse} from 'next';
 import requestIp from 'request-ip';
-import { Game } from '../../services/game';
+import {Game} from '../../services/game';
 
 const gameAnswer = 'لندو';
 
@@ -11,18 +11,23 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       message: 'Method Not Allowed',
     });
 
-  const { letter } = req.body;
+  const {letter, mobile} = req.body;
 
-  if (!letter) return res.status(400).json({ message: 'Letter is required' });
-  if (letter.length > 1) return res.status(400).json({ message: 'Letter should be one character' });
+  if (!letter) return res.status(400).json({message: 'Letter is required'});
+  if (letter.length > 1) return res.status(400).json({message: 'Letter should be one character'});
 
   const playerIp = requestIp.getClientIp(req);
 
-  if (!playerIp) return res.status(400).json({ message: 'IP Not Found!!' });
+  if (!playerIp) return res.status(400).json({message: 'IP Not Found!!'});
 
   const game = new Game(playerIp, gameAnswer);
 
-  const { user: player, status } = game.play(letter);
+  if (mobile) {
+    const {user: player, status} = game.setWinnerMobileNumber(mobile);
+    return res.status(status).json(player);
+  }
+
+  const {user: player, status} = game.play(letter);
   return res.status(status).json(player);
 };
 
